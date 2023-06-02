@@ -1,0 +1,32 @@
+<%= form_with(model: medical_record) do |form| %>
+  <% if medical_record.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(medical_record.errors.count, "error") %> prohibited this medical_record from being saved:</h2>
+
+      <ul>
+        <% medical_record.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :patient_id, style: "display: block" %>
+    <%= form.text_field :patient_id %>
+  </div>
+
+  <div>
+    <%= form.label :diagnosis, style: "display: block" %>
+    <%= form.text_area :diagnosis %>
+  </div>
+
+  <div>
+    <%= form.label :treatment_details, style: "display: block" %>
+    <%= form.text_area :treatment_details %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
